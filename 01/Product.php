@@ -98,6 +98,22 @@ class Product {
         $this->updatedAt = new DateTime(); // Mise à jour de updatedAt à la date et l'heure actuelles
     }
 
+        // Méthode pour insérer le produit dans la base de données
+        public function save(PDO $pdo): void {
+            $stmt = $pdo->prepare("INSERT INTO product (name, photos, price, description, quantity, category_id, created_at, updated_at) 
+                                   VALUES (:name, :photos, :price, :description, :quantity, :category_id, :created_at, :updated_at)");
+            $stmt->execute([
+                ':name' => $this->name,
+                ':photos' => json_encode($this->photos), // Convertit le tableau de photos en JSON
+                ':price' => $this->price,
+                ':description' => $this->description,
+                ':quantity' => $this->quantity,
+                ':category_id' => $this->category_id,
+                ':created_at' => $this->createdAt->format('Y-m-d H:i:s'),
+                ':updated_at' => $this->updatedAt->format('Y-m-d H:i:s')
+            ]);
+            $this->id = $pdo->lastInsertId(); // Met à jour l'ID avec celui généré par la BDD
+        }
 }
 
 ?>

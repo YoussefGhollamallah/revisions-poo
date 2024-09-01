@@ -53,4 +53,17 @@ class Category {
     private function updateTimestamp(): void {
         $this->updatedAt = new DateTime();
     }
+
+    // Méthode pour insérer la catégorie dans la base de données
+    public function save(PDO $pdo): void {
+        $stmt = $pdo->prepare("INSERT INTO category (name, description, created_at, updated_at) VALUES (:name, :description, :created_at, :updated_at)");
+        $stmt->execute([
+            ':name' => $this->name,
+            ':description' => $this->description,
+            ':created_at' => $this->createdAt->format('Y-m-d H:i:s'),
+            ':updated_at' => $this->updatedAt->format('Y-m-d H:i:s')
+        ]);
+        $this->id = $pdo->lastInsertId(); // Met à jour l'ID avec celui généré par la BDD
+    }
+
 }
