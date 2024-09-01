@@ -1,8 +1,11 @@
 <?php
 
 require_once __DIR__ . "/01/Product.php";
+require_once __DIR__ . "/02/Category.php";
 
-$firstProduct = new Product(1, "Chien", ["https://picsum.photos/id/237/200/300"],1250, "Bébé Labrador", 3, new DateTime(), new DateTime());
+$firstCategory = new Category(1, "Chien", "les chiens faut partie des canidées.");
+$firstProduct = new Product(1, "Chien", ["https://picsum.photos/id/237/200/300"],1250, "Bébé Labrador", 3, 1, new DateTime(), new DateTime());
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +32,6 @@ $firstProduct = new Product(1, "Chien", ["https://picsum.photos/id/237/200/300"]
             echo "<br>";
             echo $firstProduct->getName();
             
-    ?>
-</body>
+        ?>
+    </body>
 </html>
