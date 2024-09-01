@@ -7,10 +7,11 @@ class Product {
     private int $price;
     private string $description;
     private int $quantity;
+    private int $category_id;
     private DateTime $createdAt;
     private DateTime $updatedAt;
 
-    public function __construct(int $id, string $name, array $photos, int $price, string $description, int $quantity)
+    public function __construct(int $id, string $name, array $photos, int $price, string $description, int $quantity, int $category_id)
     {
         $this->id = $id;
         $this->name = $name;
@@ -18,9 +19,12 @@ class Product {
         $this->price = $price;
         $this->description = $description;
         $this->quantity = $quantity;
+        $this->category_id = $category_id;
         $this->createdAt = new DateTime(); 
         $this->updatedAt = new DateTime(); 
     }
+
+
     // Getters (accesseurs)
     public function getId(): int {
         return $this->id;
@@ -44,6 +48,10 @@ class Product {
 
     public function getQuantity(): int {
         return $this->quantity;
+    }
+
+    public function getCategoryId(): int {
+        return $this->category_id;
     }
 
     public function getCreatedAt(): DateTime {
@@ -77,6 +85,11 @@ class Product {
 
     public function setQuantity(int $quantity): void {
         $this->quantity = $quantity;
+        $this->updateTimestamp();
+    }
+
+    public function setCategoryId(int $category_id): void {
+        $this->category_id = $category_id;
         $this->updateTimestamp();
     }
 
