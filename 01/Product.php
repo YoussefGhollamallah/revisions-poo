@@ -3,14 +3,14 @@
 class Product {
     private int $id;
     private string $name;
-    private string $photos;
+    private array $photos;
     private int $price;
     private string $description;
     private int $quantity;
     private DateTime $createdAt;
     private DateTime $updatedAt;
 
-    public function __construct(int $id, string $name, string $photos, int $price, string $description, int $quantity)
+    public function __construct(int $id, string $name, array $photos, int $price, string $description, int $quantity)
     {
         $this->id = $id;
         $this->name = $name;
@@ -30,7 +30,7 @@ class Product {
         return $this->name;
     }
 
-    public function getPhotos(): string {
+    public function getPhotos(): array {
         return $this->photos;
     }
 
@@ -60,7 +60,7 @@ class Product {
         $this->updateTimestamp();
     }
 
-    public function setPhotos(string $photos): void {
+    public function setPhotos(array $photos): void {
         $this->photos = $photos;
         $this->updateTimestamp();
     }
