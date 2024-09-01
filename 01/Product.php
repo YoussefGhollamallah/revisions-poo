@@ -8,9 +8,19 @@ class Product {
     private string $description;
     private int $quantity;
     private DateTime $createdAt;
-    private DateTime $updateAt;
+    private DateTime $updatedAt;
 
-
+    public function __construct(int $id, string $name, string $photos, int $price, string $description, int $quantity)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->photos = $photos;
+        $this->price = $price;
+        $this->description = $description;
+        $this->quantity = $quantity;
+        $this->createdAt = new DateTime(); 
+        $this->updatedAt = new DateTime(); 
+    }
 }
 
 ?>
