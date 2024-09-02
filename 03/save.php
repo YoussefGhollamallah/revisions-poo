@@ -2,12 +2,13 @@
 
 require_once __DIR__ . "/../02/Category.php";
 require_once __DIR__ . "/../01/Product.php";
+require_once __DIR__ . "/../config/dbconfig.php";
 
 // Configuration de la base de données
-$host = 'localhost';
-$dbname = 'draft_shop';
-$username = 'root';
-$password = 'root';
+$host = DB_HOST;
+$dbname = DB_NAME;
+$username = DB_USER;
+$password = DB_PASSWORD;
 
 try {
     // Connexion à la base de données
