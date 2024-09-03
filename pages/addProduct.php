@@ -42,39 +42,43 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un produit</title>
-</head>
-<body>
-    <h1>Ajouter un produit</h1>
-    <form method="post" action="addProduct.php">
-        <label for="name">Nom du produit :</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="photos">URL de la photo :</label>
-        <input type="text" id="photos" name="photos"><br><br>
-
-        <label for="price">Prix :</label>
-        <input type="number" id="price" name="price" required><br><br>
-
-        <label for="description">Description :</label>
-        <textarea id="description" name="description" required></textarea><br><br>
-
-        <label for="quantity">Quantité :</label>
-        <input type="number" id="quantity" name="quantity" required><br><br>
-
-        <label for="category_id">Catégorie :</label>
-        <select id="category_id" name="category_id" required>
-            <?php foreach ($categories as $category): ?>
-                <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
-            <?php endforeach; ?>
-        </select><br><br>
-
-        <button type="submit">Ajouter le produit</button>
+<div class="container d-flex justify-content-center flex-column align-items-center">
+    <h1 class="mb-4">Ajouter un produit</h1>
+    <form method="post" action="" class="w-50">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom du produit :</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="photos" class="form-label">URL de la photo :</label>
+            <input type="text" id="photos" name="photos" class="form-control">
+        </div>
+        
+        <div class="mb-3">
+            <label for="price" class="form-label">Prix :</label>
+            <input type="number" id="price" name="price" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description :</label>
+            <textarea id="description" name="description" class="form-control" required></textarea>
+        </div>
+        
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantité :</label>
+            <input type="number" id="quantity" name="quantity" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="category_id" class="form-label">Catégorie :</label>
+            <select id="category_id" name="category_id" class="form-select" required>
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Ajouter le produit</button>
     </form>
-</body>
-</html>
+</div>
