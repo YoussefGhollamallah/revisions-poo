@@ -16,6 +16,7 @@ $firstProduct = new Product(1, "Chien", ["https://picsum.photos/id/237/200/300"]
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
         <title>Document</title>
     </head>
     <body>
@@ -29,7 +30,7 @@ $firstProduct = new Product(1, "Chien", ["https://picsum.photos/id/237/200/300"]
         <!-- <p><?php echo $firstProduct->getDescription(); ?></p> -->
         <!-- <p>Prix : <?php echo $firstProduct->getPrice(); ?> €</p> -->
         <!-- <p>Quantité disponible : <?php echo $firstProduct->getQuantity(); ?></p> -->        
-        <main>
+        <main class="d-flex justify-content-center flex-column align-items-center">
 
             <?php
             // Définit la page par défaut
