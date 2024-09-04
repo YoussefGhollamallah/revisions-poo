@@ -10,7 +10,10 @@
                     <a class="nav-link" href="index.php?page=index">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=produit">Produits</a>
+                    <a class="nav-link" href="index.php?page=Product">ProduitsByCategory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=getProductByCategory">Produits</a>
                 </li>
                 <li>
                     <a class="nav-link" href="index.php?page=addProduct">addProduct</a>
