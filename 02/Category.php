@@ -1,5 +1,7 @@
 <?php 
 
+require_once "01/Product.php";
+
 class Category {
 
     private int $id;
@@ -64,6 +66,30 @@ class Category {
             ':updated_at' => $this->updatedAt->format('Y-m-d H:i:s')
         ]);
         $this->id = $pdo->lastInsertId(); // Met à jour l'ID avec celui généré par la BDD
+    }
+
+
+    public function getProducts(PDO $pdo): array {
+        $stmt = $pdo->prepare("SELECT * FROM product WHERE category_id = :category_id");
+        $stmt->bindParam(':category_id', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+        $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $products = [];
+        foreach ($resultat as $row) {
+            $product = new Product(
+                $row['id'],
+                $row['name'],
+                json_decode($row['photos'], true), // Décodage du JSON pour obtenir le tableau de photos
+                $row['price'],
+                $row['description'],
+                $row['quantity'],
+                $row['category_id']
+            );
+            $products[] = $product;
+        }
+
+        return $products;
     }
 
 }

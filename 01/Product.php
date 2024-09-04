@@ -114,6 +114,8 @@ class Product {
             ]);
             $this->id = $pdo->lastInsertId(); // Met à jour l'ID avec celui généré par la BDD
         }
+
+
 }
 
 ?>
